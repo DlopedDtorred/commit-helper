@@ -121,7 +121,7 @@ We welcome contributions! Please feel free to submit a Pull Request.
 
 ## License 📄
 
-MIT © 2024 CommitHelper Contributors
+MIT © 2026 CommitHelper Contributors
 
 ## Support 💬
 
