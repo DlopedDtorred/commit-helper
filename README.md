@@ -19,7 +19,7 @@ npm install -g commit-helper
 
 ### From source
 ```bash
-git clone https://github.com/yourusername/commit-helper.git
+git clone https://github.com/dlopeddtorred/commit-helper.git
 cd commit-helper
 npm install
 npm run build
