@@ -133,7 +133,7 @@ MIT © 2026 CommitHelper Contributors
 
 ## Support 💬
 
-Having issues? Open an [issue](https://github.com/yourusername/commit-helper/issues) on GitHub.
+Having issues? Open an [issue](https://github.com/dlopeddtorred/commit-helper/issues) on GitHub.
 
 ---
 
