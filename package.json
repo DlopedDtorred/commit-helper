@@ -12,7 +12,8 @@
     "dev": "ts-node src/cli.ts",
     "test": "vitest",
     "start": "node dist/cli.js",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "postinstall": "chmod +x commit-helper || true"
   },
   "keywords": [
     "commit",
