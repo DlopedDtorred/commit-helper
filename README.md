@@ -12,18 +12,26 @@ A powerful CLI tool to help developers write conventional commits with ease. Say
 
 ## Installation 📦
 
-### From npm (Coming soon)
+### From npm (Recommended, coming soon)
 ```bash
 npm install -g commit-helper
 ```
 
-### From source
+### From source (run locally)
+Clone, install dependencies and build. Then either run the included wrapper script or link the package:
+
 ```bash
 git clone https://github.com/dlopeddtorred/commit-helper.git
 cd commit-helper
 npm install
 npm run build
-npm start new
+
+# Run directly from the project (no global install)
+./commit-helper new
+
+# Or make the command available globally for development
+npm link
+commit-helper new
 ```
 
 ## Quick Start 🚀
