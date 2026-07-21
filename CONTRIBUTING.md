@@ -38,7 +38,7 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/commit-helper.git
+git clone https://github.com/dlopeddtorred/commit-helper.git
 cd commit-helper
 
 # Install dependencies
