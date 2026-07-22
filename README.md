@@ -34,6 +34,19 @@ npm link
 commit-helper new
 ```
 
+### Bash completion
+A helper completion script is included at `completion/commit-helper.bash`. To enable it for your shell session:
+
+```bash
+# Source for current session
+source completion/commit-helper.bash
+
+# Install system-wide (requires sudo)
+sudo cp completion/commit-helper.bash /etc/bash_completion.d/commit-helper
+```
+
+When published via npm, the completion script will be included with the package and can be copied to your system completions directory.
+
 ## Quick Start 🚀
 
 ### Create a new commit

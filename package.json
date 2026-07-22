@@ -25,9 +25,18 @@
   ],
   "author": "DevTools Contributors",
   "license": "MIT",
+  "preferGlobal": true,
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "homepage": "https://github.com/dlopeddtorred/commit-helper",
+  "prepack": "npm run build",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/commit-helper"
+    "url": "https://github.com/dlopeddtorred/commit-helper"
   },
   "dependencies": {
     "chalk": "^5.3.0",
