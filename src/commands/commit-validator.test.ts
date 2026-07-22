@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { CommitValidator } from "../src/commands/commit-validator";
+import { CommitValidator } from "./commit-validator";
 
 describe("CommitValidator", () => {
   const validator = new CommitValidator();

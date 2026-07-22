@@ -11,6 +11,8 @@
     "build": "tsc",
     "dev": "ts-node src/cli.ts",
     "test": "vitest",
+    "lint": "eslint 'src/**/*.{ts,js}' --fix",
+    "format": "prettier --write .",
     "start": "node dist/cli.js",
     "prepare": "npm run build",
     "postinstall": "chmod +x commit-helper || true"
@@ -49,6 +51,11 @@
     "@types/inquirer": "^9.0.7",
     "typescript": "^5.3.3",
     "ts-node": "^10.9.2",
-    "vitest": "^1.0.0"
+    "vitest": "^1.0.0",
+    "eslint": "^8.50.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "prettier": "^2.8.8",
+    "eslint-config-prettier": "^8.8.0"
   }
 }
