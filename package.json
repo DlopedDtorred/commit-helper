@@ -1,6 +1,6 @@
 {
   "name": "commit-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A powerful CLI tool to help developers write conventional commits with ease",
   "type": "module",
   "main": "dist/index.js",
