@@ -1,6 +1,7 @@
 export interface ValidationResult {
   isValid: boolean;
   errors: string[];
+  warnings?: string[];
 }
 
 export class CommitValidator {
@@ -9,6 +10,7 @@ export class CommitValidator {
 
   validate(message: string): ValidationResult {
     const errors: string[] = [];
+    const warnings: string[] = [];
 
     if (!message || message.trim().length === 0) {
       errors.push("Commit message cannot be empty");
@@ -26,6 +28,8 @@ export class CommitValidator {
 
     if (firstLine.length > 72) {
       errors.push("First line should be no longer than 72 characters");
+    } else if (firstLine.length > 60) {
+      warnings.push("First line is approaching 72 character limit");
     }
 
     const lines = message.split("\n");
@@ -33,9 +37,17 @@ export class CommitValidator {
       errors.push("Second line should be blank");
     }
 
+    // Check body line length
+    for (let i = 2; i < lines.length; i++) {
+      if (lines[i].length > 100 && lines[i].trim().length > 0) {
+        warnings.push(`Line ${i + 1} exceeds 100 characters (${lines[i].length})`);
+      }
+    }
+
     return {
       isValid: errors.length === 0,
       errors,
+      warnings,
     };
   }
 }

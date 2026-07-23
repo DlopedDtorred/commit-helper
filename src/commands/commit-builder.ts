@@ -5,14 +5,14 @@ import path from "path";
 import { execSync } from "child_process";
 
 const COMMIT_TYPES = [
-  { value: "feat", name: "feat:     A new feature" },
-  { value: "fix", name: "fix:      A bug fix" },
-  { value: "docs", name: "docs:     Documentation only changes" },
-  { value: "style", name: "style:    Changes that don't affect code meaning" },
-  { value: "refactor", name: "refactor: Code change that neither fixes a bug nor adds a feature" },
-  { value: "perf", name: "perf:     A code change that improves performance" },
-  { value: "test", name: "test:     Adding missing tests or correcting existing tests" },
-  { value: "chore", name: "chore:    Changes to build process, dependencies, etc" },
+  { value: "feat", name: chalk.green("feat:     ") + "A new feature" },
+  { value: "fix", name: chalk.cyan("fix:      ") + "A bug fix" },
+  { value: "docs", name: chalk.blue("docs:     ") + "Documentation only changes" },
+  { value: "style", name: chalk.magenta("style:    ") + "Changes that don't affect code meaning" },
+  { value: "refactor", name: chalk.yellow("refactor: ") + "Code change that neither fixes a bug nor adds a feature" },
+  { value: "perf", name: chalk.red("perf:     ") + "A code change that improves performance" },
+  { value: "test", name: chalk.white("test:     ") + "Adding missing tests or correcting existing tests" },
+  { value: "chore", name: chalk.gray("chore:    ") + "Changes to build process, dependencies, etc" },
 ];
 
 function getCommonScopes(): string[] {
@@ -105,7 +105,7 @@ export class CommitBuilder {
     console.log("\n" + chalk.green("Preview:"));
     console.log(chalk.yellow(commitMessage));
 
-    const { confirmCommit } = await inquirer.prompt([
+    const confirmCommit = await inquirer.prompt([
       {
         type: "confirm",
         name: "confirmCommit",
@@ -114,7 +114,7 @@ export class CommitBuilder {
       },
     ]);
 
-    if (confirmCommit) {
+    if (confirmCommit.confirmCommit) {
       try {
         const staged = execSync("git diff --cached --name-only", { encoding: "utf8" }).trim();
         if (!staged) {
@@ -127,7 +127,14 @@ export class CommitBuilder {
         console.error(chalk.red("Failed to run git commit:"), e.message || e);
       }
     } else {
-      console.log(chalk.dim("You can copy the preview and run: git commit -m \"<message>\""));
+      // Try to copy to clipboard using xclip or pbcopy
+      try {
+        this.copyToClipboard(commitMessage);
+        console.log(chalk.green("✓ Commit message copied to clipboard!"));
+        console.log(chalk.dim("Run: git commit -m \"<message>\" (message is in your clipboard)"));
+      } catch (e) {
+        console.log(chalk.dim("You can copy the preview and run: git commit -m \"<message>\""));
+      }
     }
 
     return commitMessage;
@@ -158,5 +165,28 @@ export class CommitBuilder {
     }
 
     return commit;
+  }
+
+  private copyToClipboard(text: string): void {
+    try {
+      // Try xclip first (Linux)
+      if (process.platform === "linux") {
+        execSync("xclip -selection clipboard", { input: text });
+        return;
+      }
+      // Try pbcopy (macOS)
+      if (process.platform === "darwin") {
+        execSync("pbcopy", { input: text });
+        return;
+      }
+      // Try clip (Windows)
+      if (process.platform === "win32") {
+        execSync("clip", { input: text });
+        return;
+      }
+    } catch (e) {
+      // Silently fail if clipboard is not available
+      throw new Error("Clipboard not available");
+    }
   }
 }
