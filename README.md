@@ -24,6 +24,10 @@ A powerful, interactive CLI tool to help developers write conventional commits w
 npm install -g commit-helper
 ```
 
+
+## Por esto:
+
+```markdown
 ### From source
 
 ```bash
@@ -32,13 +36,10 @@ cd commit-helper
 npm install
 npm run build
 
-# Run directly
-./commit-helper new
-
-# Or make it global
-npm link
+# Install globally
+npm install -g .
 commit-helper new
-```
+``` 
 
 ### Bash Completion (Optional)
 
