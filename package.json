@@ -15,7 +15,7 @@
     "format": "prettier --write .",
     "start": "node dist/cli.js",
     "prepare": "npm run build",
-    "postinstall": "chmod +x commit-helper || true"
+    "postinstall": "chmod +x dist/cli.js || true"
   },
   "keywords": [
     "commit",
@@ -47,15 +47,17 @@
     "ora": "^8.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20.10.0",
     "@types/inquirer": "^9.0.7",
-    "typescript": "^5.3.3",
-    "ts-node": "^10.9.2",
-    "vitest": "^1.0.0",
-    "eslint": "^8.50.0",
-    "@typescript-eslint/parser": "^6.7.0",
+    "@types/node": "^20.10.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "commitizen": "^4.3.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.8",
-    "eslint-config-prettier": "^8.8.0"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.0"
   }
 }

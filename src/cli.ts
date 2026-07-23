@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { Program } from "./index.js";
+import { Program } from './index.js';
 
 const program = new Program();
 program.run().catch((error) => {

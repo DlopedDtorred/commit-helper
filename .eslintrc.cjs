@@ -5,14 +5,14 @@ module.exports = {
     es2021: true,
     jest: false,
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2021,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["@typescript-eslint"],
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   rules: {
-    "no-console": "off",
+    'no-console': 'off',
   },
 };

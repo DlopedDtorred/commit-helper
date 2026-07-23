@@ -13,28 +13,26 @@ export class CommitValidator {
     const warnings: string[] = [];
 
     if (!message || message.trim().length === 0) {
-      errors.push("Commit message cannot be empty");
+      errors.push('Commit message cannot be empty');
       return { isValid: false, errors };
     }
 
-    const firstLine = message.split("\n")[0];
+    const firstLine = message.split('\n')[0];
 
     if (!this.commitRegex.test(firstLine)) {
-      errors.push(
-        "Invalid format. Expected: <type>(<scope>): <subject>"
-      );
-      errors.push("Valid types: feat, fix, docs, style, refactor, perf, test, chore");
+      errors.push('Invalid format. Expected: <type>(<scope>): <subject>');
+      errors.push('Valid types: feat, fix, docs, style, refactor, perf, test, chore');
     }
 
     if (firstLine.length > 72) {
-      errors.push("First line should be no longer than 72 characters");
+      errors.push('First line should be no longer than 72 characters');
     } else if (firstLine.length > 60) {
-      warnings.push("First line is approaching 72 character limit");
+      warnings.push('First line is approaching 72 character limit');
     }
 
-    const lines = message.split("\n");
+    const lines = message.split('\n');
     if (lines.length > 1 && lines[1].trim().length > 0) {
-      errors.push("Second line should be blank");
+      errors.push('Second line should be blank');
     }
 
     // Check body line length

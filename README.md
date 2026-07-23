@@ -19,11 +19,13 @@ A powerful, interactive CLI tool to help developers write conventional commits w
 ## Installation 📦
 
 ### From npm (Recommended - coming soon)
+
 ```bash
 npm install -g commit-helper
 ```
 
 ### From source
+
 ```bash
 git clone https://github.com/dlopeddtorred/commit-helper.git
 cd commit-helper
@@ -39,6 +41,7 @@ commit-helper new
 ```
 
 ### Bash Completion (Optional)
+
 ```bash
 # Enable for current session
 source completion/commit-helper.bash
@@ -50,17 +53,21 @@ sudo cp completion/commit-helper.bash /etc/bash_completion.d/commit-helper
 ## Quick Start 🚀
 
 ### Create an interactive commit
+
 ```bash
 commit-helper new
 ```
+
 Follow the step-by-step prompts to create a perfect conventional commit.
 
 ### Validate a commit message
+
 ```bash
 commit-helper validate "feat(auth): add user login"
 ```
 
 ### Generate a changelog from git history
+
 ```bash
 commit-helper changelog
 
@@ -69,11 +76,13 @@ commit-helper changelog -o CHANGELOG.md
 ```
 
 ### Show documentation
+
 ```bash
 commit-helper config
 ```
 
 ### Setup git hooks
+
 ```bash
 commit-helper hook
 ```
@@ -81,6 +90,7 @@ commit-helper hook
 ## Conventional Commit Format 📝
 
 ### Structure
+
 ```
 <type>(<scope>): <subject>
 <blank line>
@@ -91,25 +101,27 @@ commit-helper hook
 
 ### Supported Types
 
-| Type | Emoji | Description |
-|------|-------|-------------|
-| **feat** | ✨ | A new feature |
-| **fix** | 🐛 | A bug fix |
-| **docs** | 📚 | Documentation only changes |
-| **style** | 🎨 | Code style changes (no logic) |
-| **refactor** | ♻️ | Code refactoring |
-| **perf** | ⚡ | Performance improvements |
-| **test** | ✅ | Test changes |
-| **chore** | 🔧 | Build/dependency changes |
+| Type         | Emoji | Description                   |
+| ------------ | ----- | ----------------------------- |
+| **feat**     | ✨    | A new feature                 |
+| **fix**      | 🐛    | A bug fix                     |
+| **docs**     | 📚    | Documentation only changes    |
+| **style**    | 🎨    | Code style changes (no logic) |
+| **refactor** | ♻️    | Code refactoring              |
+| **perf**     | ⚡    | Performance improvements      |
+| **test**     | ✅    | Test changes                  |
+| **chore**    | 🔧    | Build/dependency changes      |
 
 ### Examples
 
 #### Simple feature
+
 ```
 feat(auth): add user login functionality
 ```
 
 #### Feature with body and footer
+
 ```
 feat(api): implement GraphQL queries
 
@@ -120,11 +132,13 @@ Closes #123
 ```
 
 #### Bug fix
+
 ```
 fix(ui): correct button alignment on mobile devices
 ```
 
 #### Changelog entry with scope
+
 ```
 docs(readme): update installation instructions
 ```
@@ -132,59 +146,72 @@ docs(readme): update installation instructions
 ## Commands Reference 📖
 
 ### `commit-helper new`
+
 Interactive builder for creating conventional commits.
 
 **Features:**
+
 - Smart scope suggestions based on your project structure
 - Real-time preview
 - Direct git commit execution (with staged changes check)
 - Automatic clipboard copy
 
 ### `commit-helper validate <message>`
+
 Validate a commit message against conventional commit standards.
 
 **Features:**
+
 - Detailed error reporting
 - Performance warnings
 - Character count validation
 
 ### `commit-helper changelog [options]`
+
 Generate a formatted changelog from your git history.
 
 **Options:**
+
 - `-o, --output <file>` - Save changelog to a file
 
 **Output includes:**
+
 - ✨ Features
 - 🐛 Bug Fixes
 - ⚡ Performance Improvements
 - 📝 Other Changes
 
 ### `commit-helper config`
+
 Display the conventional commit guide and examples.
 
 ### `commit-helper hook`
+
 Setup git hooks for automatic commit validation.
 
 ## Development 🛠️
 
 ### Setup
+
 ```bash
 npm install
 npm run dev
 ```
 
 ### Build
+
 ```bash
 npm run build
 ```
 
 ### Test
+
 ```bash
 npm test
 ```
 
 ### Format & Lint
+
 ```bash
 npm run lint
 npm run format
@@ -201,6 +228,7 @@ We love contributions! Here's how to help:
 5. **Open** a Pull Request
 
 ### Development Workflow
+
 ```bash
 # Create a feature
 git checkout -b feature/my-feature
@@ -244,6 +272,7 @@ commit-helper/
 ### Using with Git Hooks
 
 Automatically validate commits:
+
 ```bash
 commit-helper hook
 
@@ -260,7 +289,7 @@ import { CommitBuilder, CommitValidator } from 'commit-helper';
 const validator = new CommitValidator();
 const result = validator.validate('feat(api): add new endpoint');
 console.log(result.isValid); // true
-console.log(result.errors);  // []
+console.log(result.errors); // []
 
 // Build a commit (requires interactive terminal)
 const builder = new CommitBuilder();
@@ -278,6 +307,7 @@ const message = await builder.build();
 ## Troubleshooting 🔍
 
 ### Issue: Command not found
+
 ```bash
 # Ensure it's installed globally
 npm install -g commit-helper
@@ -287,13 +317,17 @@ npm link
 ```
 
 ### Issue: Git commit fails
+
 Make sure you have staged changes:
+
 ```bash
 git add .
 ```
 
 ### Issue: Clipboard not working
+
 Some systems require `xclip` (Linux) or `pbcopy` (macOS):
+
 ```bash
 # Ubuntu/Debian
 sudo apt-get install xclip
@@ -316,6 +350,7 @@ MIT © 2026 CommitHelper Contributors
 ## Changelog 📝
 
 ### v2.0.0 (Latest)
+
 - ✨ Added interactive commit builder with smart scopes
 - ✨ Added git hook integration
 - ✨ Improved changelog generation with emojis and categories
@@ -326,6 +361,7 @@ MIT © 2026 CommitHelper Contributors
 - 📚 Updated documentation
 
 ### v1.0.1
+
 - Initial release
 - Basic commit validation
 - Simple changelog generation
