@@ -25,10 +25,7 @@ npm install -g commit-helper
 ```
 
 
-## Por esto:
-
-```markdown
-### From source
+## From Source:
 
 ```bash
 git clone https://github.com/dlopeddtorred/commit-helper.git
