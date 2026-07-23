@@ -18,7 +18,7 @@ A powerful, interactive CLI tool to help developers write conventional commits w
 
 ## Installation 📦
 
-### From npm (Recommended - coming soon)
+### ⚠️From npm (Recommended - coming soon)⚠️
 
 ```bash
 npm install -g commit-helper
